@@ -1,0 +1,74 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Beginner Guitar Lessons",
+    "providerName": "Alex Martin",
+    "providerEmail": "alex@skillswap.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Acoustic guitar classes for complete beginners.",
+    "image": "https://i.ibb.co.com/BK23w7TG/beginner-Guitar-Lessons.png",
+    "category": "Music"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Spoken English Practice",
+    "providerName": "Sara Hossain",
+    "providerEmail": "sara@skillswap.com",
+    "price": 10,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Conversational English sessions for non-native speakers.",
+    "image": "https://i.ibb.co.com/Fb4HmFm3/spoken-English-Practice.png",
+    "category": "Language"
+  },
+  {
+    "skillId": 3,
+    "skillName": "Basic Web Development",
+    "providerName": "Rafiul Islam",
+    "providerEmail": "rafiul@skillswap.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Learn HTML, CSS, and JavaScript fundamentals.",
+    "image": "https://i.ibb.co.com/V0LtgxCB/basic-Web-Development.png",
+    "category": "Technology"
+  },
+  {
+    "skillId": 4,
+    "skillName": "Creative Writing Workshop",
+    "providerName": "Nadia Rahman",
+    "providerEmail": "nadia@skillswap.com",
+    "price": 15,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "Improve storytelling and writing techniques.",
+    "image": "https://i.ibb.co.com/b5f6ZDq9/creative-Writing-Workshop.png",
+    "category": "Writing"
+  },
+  {
+    "skillId": 5,
+    "skillName": "Digital Marketing Basics",
+    "providerName": "Tanvir Chowdhury",
+    "providerEmail": "tanvir@skillswap.com",
+    "price": 30,
+    "rating": 4.5,
+    "slotsAvailable": 2,
+    "description": "Intro to SEO, social media, and email marketing.",
+    "image": "https://i.ibb.co.com/qLQLSwG1/digital-Marketing-Basics.png",
+    "category": "Business"
+  },
+  {
+    "skillId": 6,
+    "skillName": "Photography for Beginners",
+    "providerName": "Emily Zhang",
+    "providerEmail": "emily@skillswap.com",
+    "price": 18,
+    "rating": 4.6,
+    "slotsAvailable": 3,
+    "description": "Learn camera settings, composition, and lighting.",
+    "image": "https://i.ibb.co.com/hFP76wDy/photographyfor-Beginners.png",
+    "category": "Art"
+  }
+]
