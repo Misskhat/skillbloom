@@ -10,20 +10,10 @@ const RegisterPage = () => {
                     <fieldset className="fieldset">
                         {/* name section */}
                         <label className="label">Name</label>
-                        <input
-                            type="text"
-                            className="input validator"
-                            required
-                            placeholder="Username"
-                            pattern="[A-Za-z][A-Za-z0-9\-]*"
-                            minlength="3"
-                            maxlength="30"
-                            title="Only letters, numbers or dash"
-                            name="name"
-                        />
+                        <input type="text" className="input" required placeholder="Username" name="name" />
                         {/* {<span className="validator-hint">At lest 3 characters</span>} */}
                         {/* photo section */}
-                        <label className="label">Email</label>
+                        <label className="label">Photo URL</label>
                         <input type="text" className="input" placeholder="photo url" name="picture" />
 
                         {/* email section */}
@@ -34,12 +24,10 @@ const RegisterPage = () => {
                         <label className="label">Password</label>
                         <input
                             type="password"
-                            className="input validator"
+                            className="input"
                             required
                             placeholder="Password"
-                            minlength="8"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                            title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
+                            minLength="8"
                             name="password"
                         />
                         {/* {
