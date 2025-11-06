@@ -1,18 +1,26 @@
-import React from "react";
+import React, {use} from "react";
 import {Link} from "react-router";
 import {toast, ToastContainer} from "react-toastify";
+import {AuthContext} from "../AuthContext/AuthContext";
 
 const RegisterPage = () => {
+    const {user, setUser, handleSignUpUser} = use(AuthContext);
     const handleRegisterForm = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
         const picture = e.target.picture.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
+
         console.log(name, picture, email, password);
-        if (name && picture && email && password) {
-            toast.success("Thank you for successfully registration");
-        }
+
+        handleSignUpUser(email, password)
+        .then((res) => setUser(res.user))
+        .catch((error) => console.log(error));
+        // if (name && picture && email && password) {
+
+        //     toast.success("Thank you for successfully registration");
+        // }
     };
     return (
         <div className={`flex items-center justify-center min-h-screen`}>
@@ -39,7 +47,7 @@ const RegisterPage = () => {
                             className="input"
                             required
                             placeholder="Password"
-                            minLength="8"
+                            minLength="6"
                             name="password"
                         />
                         {/* {

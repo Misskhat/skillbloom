@@ -1,8 +1,11 @@
 import {NavLink} from "react-router";
 import skillLogo from "../assets/skillBloomLogo.png";
 import {RxFontBold} from "react-icons/rx";
+import {use} from "react";
+import {AuthContext} from "../AuthContext/AuthContext";
 
 const NavBar = () => {
+    const {user} = use(AuthContext);
     return (
         <div className="md:w-11/12 mx-auto">
             <div className="navbar bg-base-100">
@@ -62,10 +65,16 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end space-x-2">
-                    <img title={"no user"} className="w-10" src={`https://i.ibb.co.com/rd6TdMB/boy-au1.jpg`} alt="" />
-                    <NavLink to={"/auth-layout/login"} className="btn">
-                        LogIn
-                    </NavLink>
+                    <img title={user.name} className="w-10" src={`https://i.ibb.co.com/rd6TdMB/boy-au1.jpg`} alt="" />
+                    {user ? (
+                        <NavLink to={"/auth-layout/login"} className="btn">
+                            LogOut
+                        </NavLink>
+                    ) : (
+                        <NavLink to={"/auth-layout/login"} className="btn">
+                            LogIn
+                        </NavLink>
+                    )}
                 </div>
             </div>
         </div>
