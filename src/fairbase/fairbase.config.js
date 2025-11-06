@@ -6,12 +6,12 @@ import {getAuth} from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBOCmupAS8YGi1kbnnUGj9GhCe_nA0ZgEg",
-    authDomain: "skill-bloom-a04eb.firebaseapp.com",
-    projectId: "skill-bloom-a04eb",
-    storageBucket: "skill-bloom-a04eb.firebasestorage.app",
-    messagingSenderId: "1006926407581",
-    appId: "1:1006926407581:web:31d40c81049cb59da77174",
+    apiKey: import.meta.env.VITE_apiKey,
+    authDomain: import.meta.env.VITE_authDomain,
+    projectId: import.meta.env.VITE_projectId,
+    storageBucket: import.meta.env.VITE_storageBucket,
+    messagingSenderId: import.meta.env.VITE_messagingSenderId,
+    appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
