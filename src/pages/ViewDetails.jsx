@@ -1,13 +1,17 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Link, useLoaderData, useParams} from "react-router";
 
 const ViewDetails = () => {
+    const [detailSkill, setDetailSkill] = useState({});
     const {id} = useParams();
     const data = useLoaderData();
-    const detailSkillData = data.find((skill) => skill.skillId == id);
+    useEffect(() => {
+        const detailSkillData = data.find((skill) => skill.skillId == id);
+        setDetailSkill(detailSkillData);
+    }, [data, id]);
     const {skillName, providerName, providerEmail, price, rating, slotsAvailable, description, image, category} =
-        detailSkillData;
-    // console.log(detailSkillData);
+        detailSkill;
+    console.log(id, data, detailSkill);
     // console.log(data);
     // console.log(id);
     return (

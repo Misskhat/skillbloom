@@ -7,6 +7,7 @@ import ViewDetails from "../pages/ViewDetails";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import BookingForm from "../pages/BookingForm";
+import PrivateRouter from "../pages/PrivateRouter";
 
 export const router = createBrowserRouter([
     {
@@ -22,8 +23,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/skill-details/:id",
-                element: <ViewDetails></ViewDetails>,
                 loader: () => fetch("../skillBloom.json"),
+                element: (
+                    <PrivateRouter>
+                        <ViewDetails></ViewDetails>
+                    </PrivateRouter>
+                ),
             },
             {
                 path: "/skill-details/:id/booking-form",
@@ -48,7 +53,11 @@ export const router = createBrowserRouter([
 
             {
                 path: "/auth-layout/profile",
-                element: <MyProfile></MyProfile>,
+                element: (
+                    <PrivateRouter>
+                        <MyProfile></MyProfile>
+                    </PrivateRouter>
+                ),
             },
         ],
     },

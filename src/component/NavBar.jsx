@@ -5,7 +5,13 @@ import {use} from "react";
 import {AuthContext} from "../AuthContext/AuthContext";
 
 const NavBar = () => {
-    const {user} = use(AuthContext);
+    const {user, logOutHandle} = use(AuthContext);
+
+    const handleLogOut = () => {
+        logOutHandle()
+        .then((res) => console.log(res.user))
+        .catch((error) => console.log(error.message));
+    };
     return (
         <div className="md:w-11/12 mx-auto">
             <div className="navbar bg-base-100">
@@ -67,7 +73,7 @@ const NavBar = () => {
                 <div className="navbar-end space-x-2">
                     <img title={user?.name} className="w-10" src={`https://i.ibb.co.com/rd6TdMB/boy-au1.jpg`} alt="" />
                     {user ? (
-                        <NavLink to={"/auth-layout/login"} className="btn">
+                        <NavLink onClick={handleLogOut} className="btn">
                             LogOut
                         </NavLink>
                     ) : (
