@@ -15,7 +15,10 @@ const RegisterPage = () => {
         console.log(name, picture, email, password);
 
         handleSignUpUser(email, password)
-        .then((res) => setUser(res.user))
+        .then((res) => {
+            const user = res.user;
+            setUser(user);
+        })
         .catch((error) => console.log(error));
         // if (name && picture && email && password) {
 

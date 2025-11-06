@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {AuthContext} from "../AuthContext/AuthContext";
 import {auth} from "../fairbase/fairbase.config";
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword} from "firebase/auth";
 
 const AuthProvider = ({children}) => {
-    const [user, setUser] = useState({name: "hablu", email: "hablu@mia.com"});
+    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     const handleSignUpUser = (email, password) => {
@@ -14,6 +14,15 @@ const AuthProvider = ({children}) => {
     const handleLogInAuth = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password);
     };
+
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+        return () => {
+            unSubscribe();
+        };
+    }, []);
 
     const authData = {user, setUser, handleSignUpUser, handleLogInAuth};
 
