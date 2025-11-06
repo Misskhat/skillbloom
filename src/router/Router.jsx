@@ -8,11 +8,13 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import BookingForm from "../pages/BookingForm";
 import PrivateRouter from "../pages/PrivateRouter";
+import Loading from "../pages/Loading";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <HomeLayOut></HomeLayOut>,
+        hydrateFallbackElement: <Loading></Loading>,
         errorElement: <h1>Page not found 304</h1>,
         children: [
             {
@@ -40,6 +42,7 @@ export const router = createBrowserRouter([
     {
         path: "/auth-layout",
         element: <AuthLayOut></AuthLayOut>,
+        hydrateFallbackElement: <Loading></Loading>,
         children: [
             {
                 path: "/auth-layout/login",

@@ -74,7 +74,7 @@ const NavBar = () => {
                     <img
                         title={user?.name}
                         className="w-10"
-                        src={`${user ? user.photoURL : `https://i.ibb.co.com/rd6TdMB/boy-au1.jpg`}`}
+                        src={`${user ? user?.photoURL : `https://i.ibb.co.com/rd6TdMB/boy-au1.jpg`}`}
                         alt=""
                     />
                     {user ? (
