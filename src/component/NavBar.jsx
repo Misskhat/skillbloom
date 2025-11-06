@@ -9,8 +9,8 @@ const NavBar = () => {
 
     const handleLogOut = () => {
         logOutHandle()
-        .then((res) => console.log(res.user))
-        .catch((error) => console.log(error.message));
+        .then((res) => alert(res.user))
+        .catch((error) => console.log(error.code));
     };
     return (
         <div className="md:w-11/12 mx-auto">
@@ -71,7 +71,12 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end space-x-2">
-                    <img title={user?.name} className="w-10" src={`https://i.ibb.co.com/rd6TdMB/boy-au1.jpg`} alt="" />
+                    <img
+                        title={user?.name}
+                        className="w-10"
+                        src={`${user ? user.photoURL : `https://i.ibb.co.com/rd6TdMB/boy-au1.jpg`}`}
+                        alt=""
+                    />
                     {user ? (
                         <NavLink onClick={handleLogOut} className="btn">
                             LogOut

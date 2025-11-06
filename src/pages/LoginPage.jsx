@@ -8,7 +8,7 @@ const LoginPage = () => {
     const {user, setUser, handleLogInAuth} = use(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
-    console.log(location);
+    // console.log(location);
 
     const handleLoginForm = (e) => {
         e.preventDefault();
@@ -20,7 +20,7 @@ const LoginPage = () => {
 
         handleLogInAuth(email, password)
         .then((res) => {
-            // console.log(res.user);
+            console.log(res.user);
             toast.success(`Thank you ${res.user} for successfully Login`);
             navigate(`${location.state ? location.state : "/"}`);
         })
