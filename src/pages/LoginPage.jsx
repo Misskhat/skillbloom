@@ -1,10 +1,14 @@
-import React, {use} from "react";
-import {Link} from "react-router";
+import React, {use, useState} from "react";
+import {Link, useLocation, useNavigate} from "react-router";
 import {AuthContext} from "../AuthContext/AuthContext";
-import {ToastContainer} from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
 
 const LoginPage = () => {
+    const [error, setError] = useState("");
     const {user, setUser, handleLogInAuth} = use(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location);
 
     const handleLoginForm = (e) => {
         e.preventDefault();
@@ -12,16 +16,15 @@ const LoginPage = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        console.log(email, password);
+        // console.log(email, password);
 
         handleLogInAuth(email, password)
-        .then((res) => console.log(res.user))
-        .catch((error) => console.log(error));
-
-        // if (name && picture && email && password) {
-
-        //     toast.success("Thank you for successfully Login");
-        // }
+        .then((res) => {
+            // console.log(res.user);
+            toast.success(`Thank you ${res.user} for successfully Login`);
+            navigate(`${location.state ? location.state : "/"}`);
+        })
+        .catch((error) => setError(error.message));
     };
     return (
         <div className={`flex items-center justify-center min-h-screen`}>
@@ -43,21 +46,11 @@ const LoginPage = () => {
                             minLength="6"
                             name="password"
                         />
-                        {/* {
-                            <p className="validator-hint">
-                                Must be more than 8 characters, including
-                                <br />
-                                At least one number
-                                <br />
-                                At least one lowercase letter
-                                <br />
-                                At least one uppercase letter
-                            </p>
-                        } */}
 
                         <div>
                             <a className="link link-hover">Forgot password?</a>
                         </div>
+                        {error && <p className="font-bold text-red-600 text-center "> Password not match</p>}
                         <button type="submit" className="btn btn-neutral mt-4">
                             Login
                         </button>
