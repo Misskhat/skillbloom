@@ -1,12 +1,24 @@
 import React from "react";
 import {Link} from "react-router";
+import {toast, ToastContainer} from "react-toastify";
 
 const RegisterPage = () => {
+    const handleRegisterForm = (e) => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const picture = e.target.picture.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(name, picture, email, password);
+        if (name && picture && email && password) {
+            toast.success("Thank you for successfully registration");
+        }
+    };
     return (
         <div className={`flex items-center justify-center min-h-screen`}>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-10">
                 <h1 className="text-center font-bold text-2xl"> Register to SkillBloom </h1>
-                <form className="card-body">
+                <form onSubmit={handleRegisterForm} className="card-body">
                     <fieldset className="fieldset">
                         {/* name section */}
                         <label className="label">Name</label>
@@ -18,7 +30,7 @@ const RegisterPage = () => {
 
                         {/* email section */}
                         <label className="label">Email</label>
-                        <input type="email" className="input" placeholder="Email" />
+                        <input type="email" className="input" placeholder="Email" name="email" />
 
                         {/* password section */}
                         <label className="label">Password</label>
@@ -45,7 +57,10 @@ const RegisterPage = () => {
                         <div>
                             <a className="link link-hover">Forgot password?</a>
                         </div>
-                        <button className="btn btn-neutral mt-4">Login</button>
+                        <button type="submit" className="btn btn-neutral mt-4">
+                            Login
+                        </button>
+                        <ToastContainer />
                     </fieldset>
                     <p>
                         If you have an account. Please{" "}
